@@ -302,3 +302,11 @@
     border-color var(--dur-fast) var(--ease-out),
     opacity var(--dur-fast) var(--ease-out);
 }
+
+/* Ações da barra são links (<a>): sem sublinhado padrão. */
+.brand,
+.ghost,
+.cta,
+.ghostWide {
+  text-decoration: none;
+}
