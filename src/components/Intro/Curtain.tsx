@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate, motion, useReducedMotion } from 'motion/react'
 import { EASE_OUT } from '../../lib/motion'
+import { lockScroll, unlockScroll } from '../../lib/scrollLock'
 import { useIntro } from './IntroContext'
 import styles from './Curtain.module.css'
 
@@ -27,14 +28,12 @@ export function Curtain() {
   // Trava de scroll + topo da página enquanto visível.
   useEffect(() => {
     if (reduced || done) return
-    const root = document.documentElement
-    const prev = root.style.overflow
     const prevRestoration = history.scrollRestoration
     history.scrollRestoration = 'manual'
     window.scrollTo(0, 0)
-    root.style.overflow = 'hidden'
+    lockScroll()
     return () => {
-      root.style.overflow = prev
+      unlockScroll()
       history.scrollRestoration = prevRestoration
     }
   }, [reduced, done])
