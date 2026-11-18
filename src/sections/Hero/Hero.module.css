@@ -451,21 +451,22 @@
   }
 
   .scene {
-    top: 13%;
+    top: 19%;
     bottom: auto;
-    height: 40%;
+    height: 34%;
     right: 0;
     left: 0;
     width: 100%;
   }
 
   .heroCard {
-    width: 150px;
-    margin: calc(150px / -0.63 / 2) 0 0 -75px;
+    --cw: 130px;
+    width: 130px;
+    margin: calc(130px / -0.63 / 2) 0 0 -65px;
   }
 
   .backCard {
-    width: 120px;
+    width: 104px;
     margin: -22% 0 0 4%;
   }
 
@@ -484,7 +485,7 @@
   }
 
   .chipPix {
-    top: 4%;
+    top: 12%;
     left: 4%;
   }
 
@@ -503,6 +504,11 @@
 
   .proof {
     font-size: 0.8rem;
+    border-radius: 1rem;
+  }
+
+  .proofDivider {
+    display: none;
   }
 
   .actions {
