@@ -31,21 +31,21 @@ export function CardStage({ card, index, t, intro, tiltX, tiltY }: Props) {
   const fanRot = (index - 1.5) * 9
 
   const x = useTransform([d, intro], ([dv, iv]: number[]) => {
-    const pose = dv >= 0 ? clamp(dv, 0, 3) * 9 : dv * 70 // % da largura do cartão
+    const pose = dv >= 0 ? clamp(dv, 0, 3) * 15 : dv * 70 // % da largura do cartão
     return `${mix(fanX, pose, iv)}%`
   })
   const y = useTransform([d, intro], ([dv, iv]: number[]) => {
-    const pose = dv >= 0 ? clamp(dv, 0, 3) * -3.5 : dv * -38
+    const pose = dv >= 0 ? clamp(dv, 0, 3) * -5 : dv * -38
     const fanY = Math.abs(index - 1.5) * 6 + 55
     return `${mix(fanY, pose, iv)}%`
   })
   const rotateZ = useTransform([d, intro], ([dv, iv]: number[]) => {
-    const pose = dv >= 0 ? clamp(dv, 0, 3) * 4 : dv * 22
+    const pose = dv >= 0 ? clamp(dv, 0, 3) * 5 : dv * 22
     return mix(fanRot, pose, iv)
   })
-  const rotateYBase = useTransform(d, (dv) => (dv >= 0 ? clamp(dv, 0, 1) * -32 : dv * 50))
+  const rotateYBase = useTransform(d, (dv) => (dv >= 0 ? clamp(dv, 0, 1) * -18 : dv * 50))
   const scale = useTransform([d, intro], ([dv, iv]: number[]) => {
-    const pose = dv >= 0 ? 1 - clamp(dv, 0, 3) * 0.08 : 1 + dv * 0.12
+    const pose = dv >= 0 ? 1 - clamp(dv, 0, 3) * 0.07 : 1 + dv * 0.12
     return mix(0.62, pose, iv)
   })
   const opacity = useTransform(d, (dv) => (dv >= 0 ? 1 - clamp(dv - 2, 0, 1) * 0.6 : clamp(1 + dv * 1.4, 0, 1)))
