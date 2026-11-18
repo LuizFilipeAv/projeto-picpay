@@ -73,8 +73,8 @@
 .mask {
   display: inline-block;
   overflow: hidden;
-  padding: 0.04em 0.01em 0.12em;
-  margin: -0.04em -0.01em -0.12em;
+  padding: 0.04em 0.01em 0.22em;
+  margin: -0.04em -0.01em -0.22em;
 }
 
 .letter {

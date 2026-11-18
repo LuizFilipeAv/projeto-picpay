@@ -58,7 +58,7 @@ export function SplitWords({ text, as = 'h2', className, delay = 0, immediate }:
       {lines.map((line, li) => (
         <span key={li} aria-hidden style={{ display: 'block' }}>
           {line.split(' ').map((word, wi) => (
-            <span key={wi} style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top', paddingBottom: '0.08em', marginBottom: '-0.08em' }}>
+            <span key={wi} style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top', paddingBottom: '0.2em', marginBottom: '-0.2em' }}>
               <motion.span
                 style={{ display: 'inline-block', willChange: 'transform' }}
                 variants={{
