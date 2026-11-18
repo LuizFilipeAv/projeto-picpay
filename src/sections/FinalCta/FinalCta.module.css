@@ -1,0 +1,78 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+.heading {
+  font-size: var(--fs-h2);
+  color: var(--white);
+}
+
+@media (min-width: 40rem) {
+  .heading {
+    font-size: var(--fs-display);
+  }
+}
+
+.rotatorLine {
+  display: block;
+}
+
+/* Linha da palavra: a largura anima até a palavra nova (layout). Padding evita cortar descendentes. */
+.line {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  padding-block: 0.08em 0.14em;
+  margin-block: -0.08em -0.14em;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--green-400);
+}
+
+.body {
+  display: grid;
+  justify-items: start;
+  gap: 2rem;
+  max-width: 34rem;
+}
+
+.lead {
+  font-size: var(--fs-body-lg);
+  line-height: 1.45;
+  color: var(--gray-200);
+}
+
+.cta {
+  padding: 1rem 1.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--green-500);
+  color: var(--white);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.cta:hover {
+  background-color: var(--green-600);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
