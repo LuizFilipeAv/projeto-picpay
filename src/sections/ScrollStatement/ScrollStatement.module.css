@@ -1,0 +1,99 @@
+.section {
+  position: relative;
+  height: 260vh;
+  background: var(--white);
+}
+
+.inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vh, 3rem);
+  padding: 4rem var(--gutter);
+}
+
+.statement {
+  max-width: 18ch;
+  text-align: center;
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.word {
+  color: var(--gray-200);
+}
+
+.pills {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  width: min(100%, 56rem);
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    background var(--dur-fast) ease-out,
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.pill:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--green-500);
+  color: var(--white);
+}
+
+.pillTitle {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.pillText {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--gray-600);
+  line-height: 1.3;
+}
+
+@media (min-width: 48rem) {
+  .pills {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Reduzido: sem sticky nem altura extra */
+.static {
+  height: auto;
+}
+.static .inner {
+  position: static;
+  height: auto;
+  padding-block: var(--section-y);
+}
