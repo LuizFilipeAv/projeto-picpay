@@ -1,0 +1,129 @@
+.section {
+  background: var(--paper);
+  padding-block: var(--section-y);
+  overflow-x: clip;
+}
+
+.head {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.heading {
+  font-size: var(--fs-h2);
+  max-width: 20ch;
+}
+
+.sub {
+  font-size: var(--fs-body-lg);
+  color: var(--gray-600);
+  max-width: 40ch;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-block: 2rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 22rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  will-change: transform;
+}
+
+.white {
+  background: var(--white);
+  color: var(--ink);
+}
+.dark {
+  background: var(--green-900);
+  color: var(--white);
+}
+.gray {
+  background: var(--gray-200);
+  color: var(--ink);
+}
+
+.icon {
+  width: 7rem;
+  height: 7rem;
+  color: var(--green-500);
+}
+.dark .icon {
+  color: var(--green-400);
+}
+.gray .icon {
+  color: var(--green-700);
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+.shieldFill {
+  fill: var(--green-900);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.title {
+  font-size: var(--fs-h3);
+}
+
+.text {
+  color: var(--gray-600);
+  max-width: 28ch;
+}
+.dark .text {
+  color: rgb(255 255 255 / 0.78);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  width: fit-content;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--green-700);
+}
+.dark .link {
+  color: var(--green-400);
+}
+.link:hover {
+  text-decoration: underline;
+}
+.arrow {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.link:hover .arrow,
+.link:focus-visible .arrow {
+  transform: translateX(5px);
+}
+
+@media (min-width: 48rem) {
+  .stage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2.4vw, 2rem);
+    padding-block: 3rem;
+  }
+  .card {
+    min-height: 26rem;
+  }
+}
