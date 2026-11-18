@@ -9,7 +9,7 @@ const GREEN = new Set([3, 4]) // "70 milhões"
 // Cores literais espelham os tokens (motion interpola valores, não var()).
 const GRAY = '#e6e6e6' // --gray-200
 const INK = '#131313' // --ink
-const GREEN_500 = '#38b160' // --green-500
+const GREEN_ACTION = '#1f7a57' // --green-action (4.7:1 on paper)
 
 const TEXT_END = 0.58 // fração do scroll em que a última palavra acende
 const PILL_START = 0.62
@@ -73,7 +73,7 @@ const FEATURES: { title: string; text: string; icon: ReactNode }[] = [
 function Word({ word, i, n, progress }: { word: string; i: number; n: number; progress: MotionValue<number> }) {
   const start = (i / n) * TEXT_END
   const end = ((i + 1) / n) * TEXT_END
-  const color = useTransform(progress, [start, end], [GRAY, GREEN.has(i) ? GREEN_500 : INK])
+  const color = useTransform(progress, [start, end], [GRAY, GREEN.has(i) ? GREEN_ACTION : INK])
   return (
     <motion.span className={styles.word} style={{ color }}>
       {word}
@@ -109,7 +109,7 @@ export function ScrollStatement() {
         <div className={styles.inner}>
           <p className={styles.statement}>
             {WORDS.map((w, i) => (
-              <span key={i} className={styles.word} style={{ color: GREEN.has(i) ? GREEN_500 : INK }}>
+              <span key={i} className={styles.word} style={{ color: GREEN.has(i) ? GREEN_ACTION : INK }}>
                 {w}{' '}
               </span>
             ))}

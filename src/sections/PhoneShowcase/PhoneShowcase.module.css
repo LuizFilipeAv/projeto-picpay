@@ -141,7 +141,7 @@
   white-space: nowrap;
 }
 .cents {
-  color: var(--green-500);
+  color: var(--green-action);
 }
 
 .yieldChip {
@@ -262,7 +262,7 @@
   height: 23cqi;
   margin-top: -10cqi;
   border-radius: 50%;
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
   font-weight: 700;
   font-size: 6.4cqi;

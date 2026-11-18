@@ -58,7 +58,7 @@
 .icon {
   width: 7rem;
   height: 7rem;
-  color: var(--green-500);
+  color: var(--green-action);
 }
 .dark .icon {
   color: var(--green-400);
