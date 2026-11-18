@@ -1,0 +1,51 @@
+/* Design tokens — paleta extraída de picpay.com/pt-br/pf (ver DESIGN.md) */
+:root {
+  /* Verde PicPay */
+  --green-400: #4fd17a;
+  --green-500: #38b160;
+  --green-600: #2d9a52;
+  --green-700: #238662;
+  --green-900: #013e27;
+
+  /* Neutros */
+  --ink: #131313;
+  --ink-2: #1f1f1f;
+  --ink-3: #2a2a2a;
+  --gray-600: #666666;
+  --gray-500: #8a8a8a;
+  --gray-400: #acacac;
+  --gray-200: #e6e6e6;
+  --paper: #f2f2f2;
+  --white: #ffffff;
+
+  /* Tipografia */
+  --font-sans: 'Onest Variable', 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --fs-display: clamp(2.75rem, 7vw, 6rem);
+  --fs-h2: clamp(2rem, 4.5vw, 3.75rem);
+  --fs-h3: 1.5rem;
+  --fs-body-lg: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --tracking-tight: -0.03em;
+
+  /* Espaço e forma */
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --container: 76rem;
+  --section-y: clamp(5rem, 12vw, 10rem);
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+  --radius-pill: 999px;
+
+  /* Sombras tintadas de verde-escuro, com offset */
+  --shadow-sm: 0 2px 8px rgb(1 62 39 / 0.08);
+  --shadow-md: 0 12px 32px -8px rgb(1 62 39 / 0.18);
+  --shadow-lg: 0 40px 80px -24px rgb(0 0 0 / 0.45);
+
+  /* Motion (ver src/lib/motion.ts) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-base: 550ms;
+  --dur-slow: 900ms;
+}
