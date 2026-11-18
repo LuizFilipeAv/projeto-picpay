@@ -5,6 +5,8 @@
   --green-500: #38b160;
   --green-600: #2d9a52;
   --green-700: #238662;
+  --green-action: #1f7a57; /* CTA/texto: branco 5.28:1, sobre paper 4.71:1 */
+  --green-action-hover: #17634a; /* branco 7.19:1 */
   --green-900: #013e27;
 
   /* Neutros */
