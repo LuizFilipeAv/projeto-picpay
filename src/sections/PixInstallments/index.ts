@@ -1,0 +1,1 @@
+export { PixInstallments } from './PixInstallments'
