@@ -69,7 +69,7 @@ export function Nav() {
       animate={{ y: isHidden ? '-110%' : '0%' }}
       transition={reduce ? instant : enter}
     >
-      <div className={join(styles.bar, compact && styles.compact)}>
+      <div className={join(styles.bar, compact || open ? styles.compact : styles.onDark)}>
         <a href="#" className={styles.brand}>
           PicPay
         </a>

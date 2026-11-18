@@ -265,3 +265,40 @@
     display: none;
   }
 }
+
+/* No topo a barra fica sobre o painel escuro do hero: texto claro. */
+.onDark .brand {
+  color: var(--green-400);
+}
+
+.onDark .link,
+.onDark .menuButton {
+  color: var(--white);
+}
+
+.onDark .link {
+  opacity: 0.86;
+}
+
+.onDark .link:hover {
+  opacity: 1;
+}
+
+.onDark .ghost {
+  color: var(--white);
+  border-color: rgb(255 255 255 / 0.3);
+}
+
+.onDark .ghost:hover {
+  border-color: rgb(255 255 255 / 0.6);
+}
+
+.link,
+.ghost,
+.brand,
+.menuButton {
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
