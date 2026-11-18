@@ -109,7 +109,7 @@ export function Hero() {
               Conta que rende 102% do CDI, cartão sem anuidade e Pix parcelado em até 36x. Tudo num app só.
             </p>
             <div className={styles.actions}>
-              <a href="#conta" className={styles.primary}>
+              <a href="#abrir-conta" className={styles.primary}>
                 Abrir conta grátis
                 <span className={styles.primaryIcon} aria-hidden>
                   <Arrow />

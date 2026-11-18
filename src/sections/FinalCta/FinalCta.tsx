@@ -27,14 +27,14 @@ export function FinalCta() {
   const copy = (
     <>
       <p className={styles.lead}>Mais de 70 milhões de brasileiros já escolheram. Abra sua conta em minutos, direto no app.</p>
-      <button type="button" className={styles.cta}>
+      <a href="https://picpay.com/pt-br/pf" target="_blank" rel="noopener noreferrer" className={styles.cta}>
         Abrir conta
-      </button>
+      </a>
     </>
   )
 
   return (
-    <section ref={ref} className={styles.section} aria-labelledby="final-cta-title">
+    <section ref={ref} id="abrir-conta" className={styles.section} aria-labelledby="final-cta-title">
       <div className={`container ${styles.inner}`}>
         <h2 id="final-cta-title" className={styles.heading}>
           <span>Com PicPay, a experiência é</span>
