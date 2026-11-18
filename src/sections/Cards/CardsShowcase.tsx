@@ -1,4 +1,4 @@
-import { useRef, useState, type PointerEvent } from 'react'
+import { useEffect, useRef, useState, type PointerEvent } from 'react'
 import {
   AnimatePresence,
   motion,
@@ -63,6 +63,25 @@ function ScrollCards() {
   const detailsOpacity = useTransform(p, [0.1, 0.17], [0, 1])
   const detailsX = useTransform(p, [0.1, 0.18], [40, 0])
 
+  // Na introdução o leque fica centrado sob o título; depois desliza para a coluna do palco.
+  const stage = useRef<HTMLDivElement>(null)
+  const [centerShift, setCenterShift] = useState(0)
+  useEffect(() => {
+    const el = stage.current
+    if (!el) return
+    const measure = () => {
+      // offsetLeft ignora o transform, então a medida não depende do x atual.
+      const parentLeft = (el.offsetParent as HTMLElement | null)?.getBoundingClientRect().left ?? 0
+      const center = parentLeft + el.offsetLeft + el.offsetWidth / 2
+      setCenterShift(document.documentElement.clientWidth / 2 - center)
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  const stageX = useTransform(intro, [0, 1], [centerShift, 0])
+
   // Inclinação pelo ponteiro (só ponteiro fino).
   const tiltXRaw = useSpringValue()
   const tiltYRaw = useSpringValue()
@@ -99,11 +118,17 @@ function ScrollCards() {
         </motion.div>
 
         <div className={styles.layout}>
-          <div className={styles.stage} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+          <motion.div
+            ref={stage}
+            className={styles.stage}
+            style={{ x: stageX }}
+            onPointerMove={onPointerMove}
+            onPointerLeave={onPointerLeave}
+          >
             {CARDS.map((c, i) => (
               <CardStage key={c.id} card={c} index={i} t={t} intro={intro} tiltX={tiltXRaw} tiltY={tiltYRaw} />
             ))}
-          </div>
+          </motion.div>
 
           <motion.div className={styles.details} style={{ opacity: detailsOpacity, x: detailsX }}>
             <h2 id="cartoes-title" className="visually-hidden">
