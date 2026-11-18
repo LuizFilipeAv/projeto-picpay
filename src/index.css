@@ -62,12 +62,12 @@ button {
 
 /* Superfícies do navegador temadas pela paleta */
 ::selection {
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
 }
 
 :focus-visible {
-  outline: 2px solid var(--green-500);
+  outline: 2px solid var(--green-action);
   outline-offset: 3px;
   border-radius: 4px;
 }

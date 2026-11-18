@@ -64,7 +64,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--radius-pill);
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
 }
 

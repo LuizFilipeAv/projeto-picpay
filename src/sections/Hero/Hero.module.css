@@ -176,7 +176,7 @@
 }
 
 .chipIcon[data-tone='green'] {
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
 }
 
@@ -330,7 +330,7 @@
   gap: 0.75rem;
   padding: 0.45rem 0.45rem 0.45rem 1.4rem;
   border-radius: var(--radius-pill);
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
   font-weight: 650;
   text-decoration: none;
@@ -357,7 +357,7 @@
 }
 
 .primary:hover {
-  background: var(--green-600);
+  background: var(--green-action-hover);
 }
 
 .primary:hover .primaryIcon svg {

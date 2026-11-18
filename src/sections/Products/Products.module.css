@@ -59,7 +59,7 @@
 
 /* Conta: tile grande, verde, ocupa 2 linhas */
 .account {
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
   min-height: 26rem;
 }

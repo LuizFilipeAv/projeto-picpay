@@ -52,7 +52,7 @@
   font-weight: 800;
   line-height: 1;
   letter-spacing: var(--tracking-tight);
-  color: var(--green-500);
+  color: var(--green-action);
   text-decoration: none;
 }
 
@@ -134,7 +134,7 @@
 .cta {
   padding: 0.7rem 1.25rem;
   border-radius: var(--radius-pill);
-  background-color: var(--green-500);
+  background-color: var(--green-action);
   color: var(--white);
   font-size: var(--fs-small);
   font-weight: 700;
@@ -142,7 +142,7 @@
 }
 
 .cta:hover {
-  background-color: var(--green-600);
+  background-color: var(--green-action-hover);
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }

@@ -159,7 +159,7 @@
   margin-top: 2rem;
   padding: 0.95rem 1.5rem;
   border-radius: var(--radius-pill);
-  background: var(--green-500);
+  background: var(--green-action);
   color: var(--white);
   font-weight: 600;
   text-decoration: none;
@@ -175,7 +175,7 @@
 }
 
 .cta:hover {
-  background: var(--green-600);
+  background: var(--green-action-hover);
 }
 
 .cta:hover svg {
