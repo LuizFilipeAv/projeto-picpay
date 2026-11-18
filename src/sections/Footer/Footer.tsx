@@ -1,5 +1,16 @@
 import styles from './Footer.module.css'
 
+const EXTERNAL_URL = 'https://picpay.com/pt-br/pf'
+
+/** Links que têm seção correspondente na própria página. */
+const SECTION_ANCHORS: Record<string, string> = {
+  'Conta digital': '#conta',
+  'Cartão de crédito': '#cartoes',
+  Empréstimos: '#pix',
+  Investimentos: '#investimentos',
+  Seguros: '#seguros',
+}
+
 const COLUMNS = [
   {
     title: 'Para você',
@@ -62,9 +73,15 @@ export function Footer() {
               <ul className={styles.list}>
                 {column.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className={styles.link}>
-                      {link}
-                    </a>
+                    {SECTION_ANCHORS[link] ? (
+                      <a href={SECTION_ANCHORS[link]} className={styles.link}>
+                        {link}
+                      </a>
+                    ) : (
+                      <a href={EXTERNAL_URL} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -77,7 +94,7 @@ export function Footer() {
           <ul className={styles.social}>
             {SOCIAL.map((item) => (
               <li key={item.label}>
-                <a href="#" className={styles.socialLink} aria-label={item.label}>
+                <a href={EXTERNAL_URL} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label={item.label}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     {item.path}
                   </svg>

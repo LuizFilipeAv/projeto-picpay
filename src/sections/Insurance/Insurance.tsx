@@ -92,7 +92,7 @@ function Card({
       <div className={styles.body}>
         <h3 className={styles.title}>{c.title}</h3>
         <p className={styles.text}>{c.text}</p>
-        <a href="#seguros" className={styles.link}>
+        <a href="https://picpay.com/pt-br/pf" target="_blank" rel="noopener noreferrer" className={styles.link}>
           Saiba mais
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={styles.arrow} aria-hidden>
             <path d="M5 12h14M13 6l6 6-6 6" />
