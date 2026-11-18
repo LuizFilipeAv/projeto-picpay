@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react'
 import { EASE_OUT, enter, riseIn, staggerParent } from '../../lib/motion'
+import { useIntro } from '../../components/Intro/IntroContext'
+import { lockScroll, unlockScroll } from '../../lib/scrollLock'
 import styles from './Nav.module.css'
 
 const LINKS = [
@@ -20,6 +22,9 @@ const HIDE_SPEED = 600
 const SHOW_SPEED = -200
 
 const instant = { duration: 0 }
+const CLIENT_AREA = 'https://picpay.com/pt-br/pf'
+/** Entrada da barra logo depois que a cortina começa a subir (o título da hero já está subindo). */
+const ENTER = { duration: 1, ease: EASE_OUT, delay: 0.55 }
 
 function join(...names: (string | false | undefined)[]) {
   return names.filter(Boolean).join(' ')
@@ -31,6 +36,9 @@ export function Nav() {
   const [compact, setCompact] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
+  const { revealed } = useIntro()
+  const show = revealed || !!reduce
+  const entered = useRef(false)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setCompact(latest > COMPACT_AT)
@@ -50,6 +58,13 @@ export function Nav() {
     return () => mq.removeEventListener('change', onChange)
   }, [])
 
+  // Menu aberto: trava o scroll (inclusive o do Lenis).
+  useEffect(() => {
+    if (!open) return
+    lockScroll()
+    return unlockScroll
+  }, [open])
+
   // Esc fecha o menu.
   useEffect(() => {
     if (!open) return
@@ -66,33 +81,42 @@ export function Nav() {
   return (
     <motion.header
       className={styles.header}
-      animate={{ y: isHidden ? '-110%' : '0%' }}
-      transition={reduce ? instant : enter}
+      initial={reduce ? false : { y: '-130%' }}
+      animate={{ y: !show ? '-130%' : isHidden ? '-110%' : '0%' }}
+      transition={reduce ? instant : entered.current ? enter : ENTER}
+      onAnimationComplete={() => {
+        if (show) entered.current = true
+      }}
     >
       <div className={join(styles.bar, compact || open ? styles.compact : styles.onDark)}>
-        <a href="#" className={styles.brand}>
+        <a href="#conta" className={styles.brand} aria-label="PicPay, voltar ao início">
           PicPay
         </a>
 
         <nav aria-label="Seções da página" className={styles.links}>
           <ul className={styles.linkList}>
-            {LINKS.map((link) => (
-              <li key={link.href}>
+            {LINKS.map((link, i) => (
+              <motion.li
+                key={link.href}
+                initial={reduce ? false : { opacity: 0, y: -10 }}
+                animate={show ? { opacity: 1, y: 0 } : undefined}
+                transition={{ duration: 0.7, ease: EASE_OUT, delay: reduce ? 0 : 0.75 + i * 0.05 }}
+              >
                 <a href={link.href} className={styles.link}>
                   {link.label}
                 </a>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </nav>
 
         <div className={styles.actions}>
-          <button type="button" className={styles.ghost}>
+          <a href={CLIENT_AREA} target="_blank" rel="noopener noreferrer" className={styles.ghost}>
             Área do Cliente
-          </button>
-          <button type="button" className={styles.cta}>
+          </a>
+          <a href="#abrir-conta" className={styles.cta}>
             Abrir conta
-          </button>
+          </a>
           <button
             type="button"
             className={styles.menuButton}
@@ -133,9 +157,9 @@ export function Nav() {
               ))}
             </motion.nav>
             <motion.div className={styles.sheetFoot} variants={riseIn} initial={reduce ? false : 'hidden'} animate="visible">
-              <button type="button" className={styles.ghostWide}>
+              <a href={CLIENT_AREA} target="_blank" rel="noopener noreferrer" className={styles.ghostWide} onClick={close}>
                 Área do Cliente
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         )}
