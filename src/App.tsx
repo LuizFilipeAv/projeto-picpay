@@ -1,3 +1,5 @@
+import { Curtain } from './components/Intro/Curtain'
+import { IntroProvider } from './components/Intro/IntroContext'
 import { SmoothScroll } from './components/SmoothScroll'
 import { CardsShowcase } from './sections/Cards'
 import { FinalCta } from './sections/FinalCta'
@@ -13,20 +15,23 @@ import { ScrollStatement } from './sections/ScrollStatement'
 
 export default function App() {
   return (
-    <SmoothScroll>
-      <Nav />
-      <main>
-        <Hero />
-        <PhoneShowcase />
-        <Products />
-        <ScrollStatement />
-        <CardsShowcase />
-        <PixInstallments />
-        <Investments />
-        <Insurance />
-        <FinalCta />
-      </main>
-      <Footer />
-    </SmoothScroll>
+    <IntroProvider>
+      <SmoothScroll>
+        <Curtain />
+        <Nav />
+        <main>
+          <Hero />
+          <PhoneShowcase />
+          <Products />
+          <ScrollStatement />
+          <CardsShowcase />
+          <PixInstallments />
+          <Investments />
+          <Insurance />
+          <FinalCta />
+        </main>
+        <Footer />
+      </SmoothScroll>
+    </IntroProvider>
   )
 }
