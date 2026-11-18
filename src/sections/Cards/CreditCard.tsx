@@ -40,7 +40,7 @@ export function CreditCard({ card, sheen }: Props) {
 }
 
 function Chip() {
-  const gid = useId()
+  const gid = useId().replace(/[^a-zA-Z0-9_-]/g, "")
   return (
     <svg className={styles.chip} viewBox="0 0 40 30" aria-hidden>
       <defs>
