@@ -423,6 +423,10 @@
     top: 6%;
   }
 
+  .chipYield {
+    right: 6%;
+  }
+
   .content {
     grid-template-columns: 1fr;
     grid-template-areas:
