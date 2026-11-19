@@ -90,34 +90,11 @@
 .legal {
   font-size: var(--fs-small);
   color: var(--gray-400);
+  max-width: 60ch;
 }
 
-.social {
-  display: flex;
-  gap: 0.5rem;
-  list-style: none;
-}
-
-.socialLink {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-pill);
-  background: var(--ink-3);
-  color: var(--gray-400);
-  transition:
-    color var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out);
-}
-
-.socialLink svg {
-  width: 20px;
-  height: 20px;
-}
-
-.socialLink:hover,
-.socialLink:focus-visible {
-  color: var(--green-400);
-  background: var(--ink);
+/* Itens sem página própria neste projeto: texto, sem aparência de link. */
+.plain {
+  color: inherit;
+  opacity: 0.75;
 }
