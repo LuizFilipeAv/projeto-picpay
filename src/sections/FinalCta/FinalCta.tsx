@@ -13,6 +13,7 @@ export function FinalCta() {
   // A palavra só gira com a seção visível: não gasta frames fora da tela.
   const inView = useInView(ref, { margin: '-15% 0px' })
   const [index, setIndex] = useState(0)
+  const [noteOpen, setNoteOpen] = useState(false)
 
   useEffect(() => {
     if (reduce || !inView) return
@@ -27,9 +28,24 @@ export function FinalCta() {
   const copy = (
     <>
       <p className={styles.lead}>Mais de 70 milhões de brasileiros já escolheram. Abra sua conta em minutos, direto no app.</p>
-      <a href="https://picpay.com/pt-br/pf" target="_blank" rel="noopener noreferrer" className={styles.cta}>
+      <button type="button" className={styles.cta} aria-expanded={noteOpen} aria-controls="cta-note" onClick={() => setNoteOpen(true)}>
         Abrir conta
-      </a>
+      </button>
+      {/* Projeto de estudo: o botão não leva a cadastro nenhum, nem ao site oficial. */}
+      <div id="cta-note" aria-live="polite">
+        <AnimatePresence>
+          {noteOpen && (
+            <motion.p
+              className={styles.note}
+              initial={reduce ? false : { opacity: 0, y: 12, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: DUR.base, ease: EASE_OUT }}
+            >
+              Este site é um projeto de estudo e não abre contas. Para abrir a sua, baixe o app oficial do PicPay pela loja do seu celular.
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   )
 

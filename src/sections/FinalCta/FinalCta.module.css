@@ -76,3 +76,16 @@
 .cta:active {
   transform: scale(0.97);
 }
+
+/* Aviso exibido ao clicar em "Abrir conta": o site é um projeto de estudo. */
+.note {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  color: rgb(255 255 255 / 0.82);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
