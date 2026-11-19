@@ -96,7 +96,9 @@
 }
 
 .actions {
-  justify-self: end;
+  /* Logo depois dos links, não colado na borda: lê como um grupo só. */
+  justify-self: start;
+  margin-left: clamp(1.25rem, 3.5vw, 3rem);
   display: flex;
   align-items: center;
   gap: 0.5rem;
