@@ -75,7 +75,7 @@ export function Investments() {
               ))}
             </ul>
 
-            <motion.a href="https://picpay.com/pt-br/pf" target="_blank" rel="noopener noreferrer" className={styles.cta} style={reduce ? undefined : { opacity: btnO, y: btnY }}>
+            <motion.a href="#abrir-conta" className={styles.cta} style={reduce ? undefined : { opacity: btnO, y: btnY }}>
               Conheça os investimentos
             </motion.a>
           </div>
