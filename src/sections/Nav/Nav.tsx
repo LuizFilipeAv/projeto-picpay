@@ -22,7 +22,6 @@ const HIDE_SPEED = 600
 const SHOW_SPEED = -200
 
 const instant = { duration: 0 }
-const CLIENT_AREA = 'https://picpay.com/pt-br/pf'
 /** Entrada da barra logo depois que a cortina começa a subir (o título da hero já está subindo). */
 const ENTER = { duration: 1, ease: EASE_OUT, delay: 0.55 }
 
@@ -111,9 +110,6 @@ export function Nav() {
         </nav>
 
         <div className={styles.actions}>
-          <a href={CLIENT_AREA} target="_blank" rel="noopener noreferrer" className={styles.ghost}>
-            Área do Cliente
-          </a>
           <a href="#abrir-conta" className={styles.cta}>
             Abrir conta
           </a>
@@ -157,8 +153,8 @@ export function Nav() {
               ))}
             </motion.nav>
             <motion.div className={styles.sheetFoot} variants={riseIn} initial={reduce ? false : 'hidden'} animate="visible">
-              <a href={CLIENT_AREA} target="_blank" rel="noopener noreferrer" className={styles.ghostWide} onClick={close}>
-                Área do Cliente
+              <a href="#abrir-conta" className={styles.ghostWide} onClick={close}>
+                Abrir conta
               </a>
             </motion.div>
           </motion.div>
